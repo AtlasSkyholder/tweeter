@@ -1,0 +1,14 @@
+header {
+  height: 400px;
+  width: 100%;
+  background-color: orange;
+  background-image: url("/images/asfalt-dark.png");
+}
+
+#cenImage {
+  padding-left: 40%;
+}
+
+#cenText {
+  padding-left: 43%;
+}

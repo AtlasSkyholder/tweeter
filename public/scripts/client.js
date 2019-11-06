@@ -80,10 +80,11 @@ $(document).ready(function(){
       url: '/tweets',
       data: $( this ).serialize(),
       success: () => {
-        loadTweets(data);
+        console.log("Hello Wolrd");
         //remove all tweets from render
         // get all tweets
         // renderTweets(data);
+        loadTweets(data);
       },
     });
   });
@@ -92,7 +93,7 @@ $(document).ready(function(){
     $.ajax({
       type: "GET",
       url: '/tweets',
-      data: data,
+      data: JSON.parse(data),
       success: () => {
         console.log(data);
       }

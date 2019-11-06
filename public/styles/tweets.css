@@ -34,11 +34,19 @@
   margin-right: 2%;
 }
 
-#userID {
+.userID {
   opacity: 0;
   float:right;
   margin-top: 1%;
   margin-right: 2.5%;
+}
+
+.post-tweet:hover {
+  box-shadow: 10px 10px 5px grey;
+}
+
+.post-tweet:hover .userID {
+  opacity: 0.5;
 }
 
 #date {

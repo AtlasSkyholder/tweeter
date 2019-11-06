@@ -37,8 +37,9 @@ const renderTweets = function(tweets) {
   for(let i = 0; i < tweets.length; i++) {
     let singleTweet = tweets[i];
     const tweet = createTweetElement(singleTweet);
-    console.log(tweet);
-    $('#tweets-container').append(tweet); 
+    $('#tweets-container').append(tweet);
+
+
   }
 }
 
@@ -51,7 +52,7 @@ const createTweetElement = function(tweet) {
     <header>
       <img id="image" src="${tweet.user.avatars}">
       <a id="name">${tweet.user.name}</a>
-      <a id="userID">${tweet.user.handle}</a>
+      <a class="userID">${tweet.user.handle}</a>
     </header>
       <div id="inner-tweet">
         <p>${tweet.content.text}</p>     
@@ -69,5 +70,32 @@ const createTweetElement = function(tweet) {
 
 
 $(document).ready(function(){
+  // get tweets from server
   renderTweets(data);
+
+  $( "#post-tweets" ).on( "submit", function( event ) {
+    event.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: '/tweets',
+      data: $( this ).serialize(),
+      success: () => {
+        loadTweets(data);
+        //remove all tweets from render
+        // get all tweets
+        // renderTweets(data);
+      },
+    });
+  });
+
+  const loadTweets = function (data) {
+    $.ajax({
+      type: "GET",
+      url: '/tweets',
+      data: data,
+      success: () => {
+        console.log(data);
+      }
+    });
+  };
 });

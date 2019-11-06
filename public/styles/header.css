@@ -1,4 +1,4 @@
-header {
+#top-header {
   height: 400px;
   width: 100%;
   background-color: orange;
@@ -6,7 +6,12 @@ header {
 }
 
 #cenImage {
-  padding-left: 40%;
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1%;
+  width: 20%;
 }
 
 #cenText {

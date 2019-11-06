@@ -57,7 +57,7 @@ const createTweetElement = function(tweet) {
         <p>${tweet.content.text}</p>     
       </div>
     <footer>
-      <a id="date">${time} days</a>
+      <a id="date">${time} days ago</a>
       <img id="heart" src="/images/heart.png">
       <img id="arrows" src="/images/exchange.png">
       <img id="flag" src="/images/flag.png">

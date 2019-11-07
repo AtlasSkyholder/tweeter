@@ -91,7 +91,8 @@ $(document).ready(function(){
       success: () => {
         let tweetSize = ($(this).serialize()).length - 5;
         if (tweetSize > 140) {
-          alert("The tweet is just too long!! Make it shorter please.");
+          $("#tweet-warning-long").slideDown();
+          setTimeout(function(){$("#tweet-warning-long").slideUp()}, 5000);
         } else {
           loadTweets();
         }
@@ -101,7 +102,8 @@ $(document).ready(function(){
       },
       error: function(){
         //your code here
-        alert("The tweet is empty, please type something to post it.");
+        $("#tweet-warning-short").slideDown();
+        setTimeout(function(){$("#tweet-warning-short").slideUp()}, 5000);
       }
     });
   });

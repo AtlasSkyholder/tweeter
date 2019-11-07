@@ -24,3 +24,31 @@ input {
   float: right;
   margin-right: 5%;
 }
+
+#new-tweet {
+  display: none;
+}
+
+#tweet-warning-long {
+  display:none;
+}
+
+#tweet-warning-short {
+  display:none;
+}
+
+#tweet-warning-long {
+  color: red;
+  border: 5px solid red;
+  width : 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#tweet-warning-short {
+  color: red;
+  border: 5px solid red;
+  width : 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}

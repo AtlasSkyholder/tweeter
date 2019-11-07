@@ -12,7 +12,16 @@ span {
   font-family: Bungee;
 }
 
-#resetWord {
+.clearfix {
+  clear:both;
+}
+
+#reset-word, #nav-icon {
   font-family: Source Sans Pro;
-  float: right;
+  float:right;
+  margin: 0 0 10px 10px;
+}
+
+#nav-icon {
+  margin-right: 10%;
 }

@@ -34,13 +34,15 @@ const renderTweets = function(tweets) {
 // loops through tweets
 // calls createTweetElement for each tweet
 // takes return value and appends it to the tweets container
-  for(let i = 0; i < tweets.length; i++) {
-    let singleTweet = tweets[i];
-    const tweet = createTweetElement(singleTweet);
-    $('#tweets-container').append(tweet);
-
-
-  }
+  $('#tweets-container').empty();
+  tweets.forEach((value) => {
+    $('#tweets-container').prepend(createTweetElement(value));
+  });
+  // for(let i =  0; i < tweets.length; i++) {
+  //   let singleTweet = tweets[i];
+  //   const tweet = createTweetElement(singleTweet);
+  //   $('#tweets-container').append(tweet);
+  // }
 }
 
 const createTweetElement = function(tweet) {
@@ -55,7 +57,7 @@ const createTweetElement = function(tweet) {
       <a class="userID">${tweet.user.handle}</a>
     </header>
       <div id="inner-tweet">
-        <p>${tweet.content.text}</p>     
+        <p>${escape(tweet.content.text)}</p>     
       </div>
     <footer>
       <a id="date">${time} days ago</a>
@@ -68,10 +70,16 @@ const createTweetElement = function(tweet) {
   return $tweet.append(markup);
 }
 
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 
 $(document).ready(function(){
   // get tweets from server
-  renderTweets(data);
+  //renderTweets(data);
 
   $( "#post-tweets" ).on( "submit", function( event ) {
     event.preventDefault();
@@ -79,24 +87,29 @@ $(document).ready(function(){
       type: "POST",
       url: '/tweets',
       data: $( this ).serialize(),
+      //dataType: 'JSON',
       success: () => {
-        console.log("Hello Wolrd");
+        let tweetSize = ($(this).serialize()).length - 5;
+        if (tweetSize > 140) {
+          alert("The tweet is just too long!! Make it shorter please.");
+        } else {
+          loadTweets();
+        }
         //remove all tweets from render
         // get all tweets
         // renderTweets(data);
-        loadTweets(data);
       },
+      error: function(){
+        //your code here
+        alert("The tweet is empty, please type something to post it.");
+      }
     });
   });
 
-  const loadTweets = function (data) {
-    $.ajax({
-      type: "GET",
-      url: '/tweets',
-      data: JSON.parse(data),
-      success: () => {
-        console.log(data);
-      }
+  const loadTweets = function () {
+    $.ajax('/tweets', {method: 'GET'})
+    .then(function (data) {
+      renderTweets(data);
     });
   };
 });

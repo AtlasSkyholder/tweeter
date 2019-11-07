@@ -25,10 +25,27 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+@media only screen and (max-width: 1024px) { 
+  .container {
+    width: 90%;
+    text-align:center;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
 
- .container {
-  width: 90%;
-  text-align:center;
-  margin-left: 5%;
-  margin-right: 5%;
- }
+@media only screen and (min-width: 1025px) {
+  #main-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    text-align:center;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}

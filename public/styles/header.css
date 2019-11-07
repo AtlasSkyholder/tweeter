@@ -1,19 +1,43 @@
-#top-header {
-  height: 400px;
-  width: 100%;
-  background-color: orange;
-  background-image: url("/images/asfalt-dark.png");
+@media only screen and (max-width: 1024px) { 
+  #top-header {
+    height: 400px;
+    width: 100%;
+    background-color: orange;
+    background-image: url("/images/asfalt-dark.png");
+  }
+  
+  #cenImage {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1%;
+    width: 20%;
+  }
+  
+  #cenText {
+    padding-left: 41%;
+  }
 }
 
-#cenImage {
-  display: block;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 1%;
-  width: 20%;
-}
+@media only screen and (min-width: 1025px) {
+  #top-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 250px;
+    width: 300px;
+    background-color: orange;
+    background-image: url("/images/asfalt-dark.png");
+  }
 
-#cenText {
-  padding-left: 41%;
+  #cenImage {
+    margin-top: 2%;
+    width: 60%;
+  }
+
+  #cenText {
+    margin-top: 3%;
+    margin-bottom: 0;
+  }
 }

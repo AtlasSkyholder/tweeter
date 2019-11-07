@@ -36,37 +36,40 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>Tweeter</span>
-      <span id = "reset-word"><strong>Write</strong> a new tweet</span>
-      <div class="clearfix"></div>
-      <span id = "nav-icon"><i class="fas fa-angle-double-down"></i></span>
+      <div id="nav-right-box">
+        <span id = "reset-word"><strong>Write</strong> a new tweet</span>
+        <span id = "nav-icon"><i class="fas fa-angle-double-down"></i></span>
+      </div>
     </nav>
 
-    <header id="top-header">
-      <div id="cenImage">
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div id="cenText">
-          <h2>Generic Dude</h2>
-      </div>
-    </header>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <p id="tweet-warning-long"><i class="fas fa-exclamation-triangle"></i>
-        The Tweet is too long. Make it 140 chanrs or shorter. <i class="fas fa-exclamation-triangle"></i></p>
-        <p id="tweet-warning-short"><i class="fas fa-exclamation-triangle"></i>
-          The Tweet is empty. Type something, come on!! <i class="fas fa-exclamation-triangle"></i></p>
-      <section id="new-tweet">
-        <h2>Compose Tweet</h2>
-          <form method="POST" action="/tweets" id="post-tweets">
-            <textarea id = "myText" name="text" placeholder="What are you humming about?"></textarea>
-            <input id="tweet-button" type="submit" value="Tweet">
-            <span class="counter">140</span>
-          </form>
-      </section>
-      <article id="tweets-container">
-      </article>
-    </main>
-  </body>
-</html>
+    <div id="main-container">
+      <header id="top-header">
+        <img id="cenImage" src="/images/profile-hex.png"> 
+        <h4 id="cenText">Generic Dude</h4>
+      </header>
+      
+          <!-- Page-specific (main) content here -->
+          <main class="container">
+            <div id="new-tweet-container">
+                <p id="tweet-warning-long"><i class="fas fa-exclamation-triangle"></i>
+                  The Tweet is too long. Make it 140 chanrs or shorter. <i class="fas fa-exclamation-triangle"></i></p>
+                  <p id="tweet-warning-short"><i class="fas fa-exclamation-triangle"></i>
+                    The Tweet is empty. Type something, come on!! <i class="fas fa-exclamation-triangle"></i></p>
+                <section id="new-tweet">
+                  <h2>Compose Tweet</h2>
+                    <form method="POST" action="/tweets" id="post-tweets">
+                      <textarea id = "myText" name="text" placeholder="What are you humming about?"></textarea>
+                      <div id="new-tweet-footer">
+                        <input id="tweet-button" type="submit" value="Tweet">
+                        <span class="counter">140</span>
+                      </div>
+                    </form>
+                </section>
+            </div>
+            <article id="tweets-container">
+            </article>
+          </main>
+        </body>
+      </html>
+      
+    </div>

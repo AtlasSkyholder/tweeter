@@ -1,54 +1,91 @@
-textarea {
-  height: 50px;
-  width: 90%;
-  margin-left:5%;
-  margin-right:5%;
-  background-color: #f4f1ec;
-  font-size: 24px;
-  font-family: Source Sans Pro;
-  font-weight: bold;
-  border: none;
-  border-bottom: 5px solid black;
+@media only screen and (max-width: 1024px) {
+  textarea {
+    height: 50px;
+    width: 90%;
+    margin-left:5%;
+    margin-right:5%;
+    background-color: #f4f1ec;
+    font-size: 24px;
+    font-family: Source Sans Pro;
+    font-weight: bold;
+    border: none;
+    border-bottom: 5px solid black;
+  }
+  
+  input {
+    float:left;
+    background-color: #4056A1;
+    color: #FFFFFF;
+    font-family: Bungee;
+    margin-left:5%;
+    border: none;
+  }
+  
+  .counter {
+    float: right;
+    margin-right: 5%;
+  }
+  
+  #new-tweet, #tweet-warning-long, #tweet-warning-short {
+    display: none;
+  }
+  
+  #tweet-warning-long, #tweet-warning-short  {
+    color: red;
+    border: 5px solid red;
+    width : 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 
-input {
-  float:left;
-  background-color: #4056A1;
-  color: #FFFFFF;
-  font-family: Bungee;
-  margin-left:5%;
-  border: none;
-}
+@media only screen and (min-width: 1025px) {
 
-.counter {
-  float: right;
-  margin-right: 5%;
-}
+  #new-tweet-container {
+    display: flex;
+    flex-direction: column;
+  }
 
-#new-tweet {
-  display: none;
-}
+  textarea {
+    height: 50px;
+    width: 90%;
+    margin-left:5%;
+    margin-right:5%;
+    background-color: #f4f1ec;
+    font-size: 24px;
+    font-family: Source Sans Pro;
+    font-weight: bold;
+    border: none;
+    border-bottom: 5px solid black;
+  }
+  
+  input {
+    background-color: #4056A1;
+    color: #FFFFFF;
+    font-family: Bungee;
+    border: none;
+    margin-left:5%;
+  }
 
-#tweet-warning-long {
-  display:none;
-}
+  .counter {
+    margin-right: 5%;
+  }
 
-#tweet-warning-short {
-  display:none;
-}
+  #new-tweet-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-#tweet-warning-long {
-  color: red;
-  border: 5px solid red;
-  width : 90%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-#tweet-warning-short {
-  color: red;
-  border: 5px solid red;
-  width : 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  #new-tweet, #tweet-warning-long, #tweet-warning-short {
+    display: none;
+  }
+  
+  #tweet-warning-long, #tweet-warning-short  {
+    color: red;
+    border: 5px solid red;
+    width : 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }

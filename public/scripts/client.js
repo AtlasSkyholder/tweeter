@@ -46,19 +46,23 @@ const createTweetElement = function(tweet) {
   let time = Math.floor((Date.now() - tweet.created_at) / 86400000);
   const markup = `
   <article class="post-tweet">
-    <header>
-      <img id="image" src="${tweet.user.avatars}">
-      <a id="name">${tweet.user.name}</a>
+    <header id="tweet-header">
+      <div id="tweet-top-left-corner">
+        <img id="image" src="${tweet.user.avatars}">
+        <a id="name">${tweet.user.name}</a>
+      </div>
       <a class="userID">${tweet.user.handle}</a>
     </header>
       <div id="inner-tweet">
         <p>${escape(tweet.content.text)}</p>     
       </div>
-    <footer>
+    <footer id="tweet-footer">
       <a id="date">${time} days ago</a>
-      <img id="heart" src="/images/heart.png">
-      <img id="arrows" src="/images/exchange.png">
-      <img id="flag" src="/images/flag.png">
+      <div id="tweet-icons">
+        <img id="heart" src="/images/heart.png">
+        <img id="arrows" src="/images/exchange.png">
+        <img id="flag" src="/images/flag.png">
+      </div>
     </footer>
   </article>
   `;
@@ -82,7 +86,7 @@ $(document).ready(function(){
       $("#tweet-warning-long").slideDown();
       setTimeout(function(){$("#tweet-warning-long").slideUp()}, 5000);
       
-    } else if ($('textarea').val().length === 0 || $('textarea').val().length === null){ 
+    } else if ($('textarea').val().length <= 0 || $('textarea').val().length === null){ 
       $("#tweet-warning-short").slideDown();
       setTimeout(function(){$("#tweet-warning-short").slideUp()}, 5000);
     } else {

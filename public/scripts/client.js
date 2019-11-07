@@ -38,11 +38,6 @@ const renderTweets = function(tweets) {
   tweets.forEach((value) => {
     $('#tweets-container').prepend(createTweetElement(value));
   });
-  // for(let i =  0; i < tweets.length; i++) {
-  //   let singleTweet = tweets[i];
-  //   const tweet = createTweetElement(singleTweet);
-  //   $('#tweets-container').append(tweet);
-  // }
 }
 
 const createTweetElement = function(tweet) {
@@ -79,33 +74,33 @@ const escape =  function(str) {
 
 $(document).ready(function(){
   // get tweets from server
-  //renderTweets(data);
-
+  renderTweets(data);
   $( "#post-tweets" ).on( "submit", function( event ) {
     event.preventDefault();
-    $.ajax({
-      type: "POST",
-      url: '/tweets',
-      data: $( this ).serialize(),
-      //dataType: 'JSON',
-      success: () => {
-        let tweetSize = ($(this).serialize()).length - 5;
-        if (tweetSize > 140) {
-          $("#tweet-warning-long").slideDown();
-          setTimeout(function(){$("#tweet-warning-long").slideUp()}, 5000);
-        } else {
+
+    if ($('textarea').val().length > 140) {
+      $("#tweet-warning-long").slideDown();
+      setTimeout(function(){$("#tweet-warning-long").slideUp()}, 5000);
+      
+    } else if ($('textarea').val().length === 0 || $('textarea').val().length === null){ 
+      $("#tweet-warning-short").slideDown();
+      setTimeout(function(){$("#tweet-warning-short").slideUp()}, 5000);
+    } else {
+      $.ajax({
+        type: "POST",
+        url: '/tweets',
+        data: $( this ).serialize(),
+        success: () => {
           loadTweets();
-        }
         //remove all tweets from render
         // get all tweets
         // renderTweets(data);
-      },
-      error: function(){
+        },
+        error: function(){
         //your code here
-        $("#tweet-warning-short").slideDown();
-        setTimeout(function(){$("#tweet-warning-short").slideUp()}, 5000);
-      }
-    });
+        }
+      });
+    }
   });
 
   const loadTweets = function () {

@@ -54,7 +54,7 @@ const createTweetElement = function(tweet) {
       <a class="userID">${tweet.user.handle}</a>
     </header>
       <div id="inner-tweet">
-        <p>${escape(tweet.content.text)}</p>     
+        <p id="tweet-phrase">${escape(tweet.content.text)}</p>     
       </div>
     <footer id="tweet-footer">
       <a id="date">${time} days ago</a>
@@ -78,7 +78,7 @@ const escape =  function(str) {
 
 $(document).ready(function(){
   // get tweets from server
-  renderTweets(data);
+  
   $( "#post-tweets" ).on( "submit", function( event ) {
     event.preventDefault();
 
@@ -113,4 +113,6 @@ $(document).ready(function(){
       renderTweets(data);
     });
   };
+
+  loadTweets();
 });

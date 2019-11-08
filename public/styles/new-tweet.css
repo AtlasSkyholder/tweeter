@@ -22,6 +22,7 @@
     color: #FFFFFF;
     font-family: Bungee;
     border: none;
+    margin-right: 30%;
   }
   
   #new-tweet, #tweet-warning-long, #tweet-warning-short {

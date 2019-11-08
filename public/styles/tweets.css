@@ -34,7 +34,7 @@
     box-shadow: 10px 10px 5px grey;
   }
   
-  .post-tweet:hover .userID {
+  .post-tweet:hover .userID{
     opacity: 0.5;
   }
 
@@ -75,6 +75,11 @@
     justify-content: space-between;
     width: 70px;
     margin-right: 5%;
+    opacity: 0;
+  }
+
+  .post-tweet:hover #tweet-icons {
+    opacity: 1;
   }
 
   #tweet-phrase {
@@ -86,12 +91,8 @@
     font-size: 0.5em;
     margin-left: 5%;
   }
-  
-  #heart {
-    height: 20px;
-  }
-  
-  #arrows, #flag {
+
+  #arrows, #flag, #heart {
     height: 20px;
   }
 }
@@ -166,6 +167,11 @@
     justify-content: space-between;
     width: 70px;
     margin-right: 5%;
+    opacity: 0;
+  }
+
+  .post-tweet:hover #tweet-icons {
+    opacity: 1;
   }
 
   #tweet-phrase {
@@ -178,11 +184,7 @@
     margin-left: 5%;
   }
   
-  #heart {
-    height: 20px;
-  }
-  
-  #arrows, #flag {
+  #arrows, #flag, #heart {
     height: 20px;
   }
 }

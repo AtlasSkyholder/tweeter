@@ -1,4 +1,9 @@
 @media only screen and (max-width: 960px) {
+  #new-tweet-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
   textarea {
     height: 50px;
     width: 90%;
@@ -13,17 +18,10 @@
   }
   
   input {
-    float:left;
     background-color: #4056A1;
     color: #FFFFFF;
     font-family: Bungee;
-    margin-left:5%;
     border: none;
-  }
-  
-  .counter {
-    float: right;
-    margin-right: 5%;
   }
   
   #new-tweet, #tweet-warning-long, #tweet-warning-short {

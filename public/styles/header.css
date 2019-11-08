@@ -1,26 +1,26 @@
-@media only screen and (max-width: 1024px) { 
+@media only screen and (max-width: 960px) { 
   #top-header {
-    height: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 20%;
     width: 100%;
     background-color: orange;
     background-image: url("/images/asfalt-dark.png");
   }
   
   #cenImage {
-    display: block;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 1%;
-    width: 20%;
+    margin-top: 2%;
+    width: 40%;
   }
   
   #cenText {
-    padding-left: 41%;
+    margin-top: 3%;
+    margin-bottom: 0;
   }
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 961px) {
   #top-header {
     display: flex;
     align-items: center;
@@ -29,6 +29,8 @@
     width: 300px;
     background-color: orange;
     background-image: url("/images/asfalt-dark.png");
+    margin-top: 3%;
+    margin-left: 3%;
   }
 
   #cenImage {

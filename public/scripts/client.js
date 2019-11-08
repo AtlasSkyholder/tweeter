@@ -96,9 +96,9 @@ $(document).ready(function(){
         data: $( this ).serialize(),
         success: () => {
           loadTweets();
-        //remove all tweets from render
-        // get all tweets
-        // renderTweets(data);
+          $('#myText').val('');
+          $('.counter').text(140);
+
         },
         error: function(){
         //your code here

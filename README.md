@@ -6,13 +6,13 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["screenshot description"](#)
-!["screenshot description"](#)
-!["screenshot description"](#)
-!["screenshot description"](#)
-!["screenshot description"](#)
-!["screenshot description"](#)
-!["screenshot description"](#)
+!["Tweeter App as seen from the desktop"](https://github.com/AtlasSkyholder/tweeter/blob/master/docs/desktop-view.png?raw=true)
+!["Shadow and user ID appears when mouse arrow hovers over"](https://github.com/AtlasSkyholder/tweeter/blob/master/docs/shadow-effect.png?raw=true)
+!["Toggle function to add new tweets"](https://github.com/AtlasSkyholder/tweeter/blob/master/docs/toggle-new-tweet.png?raw=true)
+!["A new tweet has been generated"](https://github.com/AtlasSkyholder/tweeter/blob/master/docs/new-tweet-made.png?raw=true)
+!["A warning message appears when attempting to tweet an empty message"](https://github.com/AtlasSkyholder/tweeter/blob/master/docs/warning-message-empty-tweet.png?raw=true)
+!["A warning message appears when attemtping a tweet that is too long"](https://github.com/AtlasSkyholder/tweeter/blob/master/docs/warning-tweet-long.png?raw=true)
+!["Tweeter App as seen from a mobile phone, iPhone X emulation"](https://github.com/AtlasSkyholder/tweeter/blob/master/docs/iPhoneX-emulation-view.png?raw=true)
 
 ## Getting Started
 

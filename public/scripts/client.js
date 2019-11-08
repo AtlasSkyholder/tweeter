@@ -30,20 +30,26 @@ const data = [
   }
 ]
 
+
+///////////////////////////////////
+// Renders the Tweets
+///////////////////////////////////
+
 const renderTweets = function(tweets) {
-// loops through tweets
-// calls createTweetElement for each tweet
-// takes return value and appends it to the tweets container
-  $('#tweets-container').empty();
-  tweets.forEach((value) => {
+  $('#tweets-container').empty();  // empties the tweets container so it won't double post
+  tweets.forEach((value) => {      // it runs the array and prepends the new tweet to the container
     $('#tweets-container').prepend(createTweetElement(value));
   });
 }
 
+////////////////////////////////////
+// Tweet Creater
+///////////////////////////////////
+
 const createTweetElement = function(tweet) {
   let $tweet = $('<article>').addClass('tweet');
-  // ...
-  let time = Math.floor((Date.now() - tweet.created_at) / 86400000);
+  let time = Math.floor((Date.now() - tweet.created_at) / 86400000); // calculates the date
+  // the prototype for creating the tweet
   const markup = `
   <article class="post-tweet">
     <header id="tweet-header">
@@ -69,28 +75,33 @@ const createTweetElement = function(tweet) {
   return $tweet.append(markup);
 }
 
-const escape =  function(str) {
+//////////////////////////////
+// Prevent malicious code
+//////////////////////////////
+
+const escape =  function(str) {  // the code provided by the lesson to prevent malicious code
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
+//////////////////////////////////
+// POST and GET for server
+//////////////////////////////////
 
 $(document).ready(function(){
-  // get tweets from server
-  
-  $( "#post-tweets" ).on( "submit", function( event ) {
-    event.preventDefault();
+  $( "#post-tweets" ).on( "submit", function( event ) {    // get tweets from server
+    event.preventDefault();   // stops the page from loading /tweets
 
-    if ($('textarea').val().length > 140) {
-      $("#tweet-warning-long").slideDown();
+    if ($('textarea').val().length > 140) {    // checks if the tweet is over 140 chars
+      $("#tweet-warning-long").slideDown();    // warns the user that the tweet is too long
       setTimeout(function(){$("#tweet-warning-long").slideUp()}, 5000);
       
-    } else if ($('textarea').val().length <= 0 || $('textarea').val().length === null){ 
-      $("#tweet-warning-short").slideDown();
-      setTimeout(function(){$("#tweet-warning-short").slideUp()}, 5000);
+    } else if ($('textarea').val().length <= 0 || $('textarea').val().length === null) { 
+      $("#tweet-warning-short").slideDown();    // checks if the tweet is empty or null and warns
+      setTimeout(function(){$("#tweet-warning-short").slideUp()}, 5000); // the user
     } else {
-      $.ajax({
+      $.ajax({  // The tweet is posted into the /tweet page
         type: "POST",
         url: '/tweets',
         data: $( this ).serialize(),
@@ -98,21 +109,19 @@ $(document).ready(function(){
           loadTweets();
           $('#myText').val('');
           $('.counter').text(140);
-
         },
         error: function(){
-        //your code here
         }
       });
     }
   });
 
-  const loadTweets = function () {
+  const loadTweets = function () {  // Gets the tweet from the /tweet age and sends it to renderTweets
     $.ajax('/tweets', {method: 'GET'})
     .then(function (data) {
       renderTweets(data);
     });
   };
 
-  loadTweets();
+  loadTweets();  // loads the page with the tweets in the database
 });
